@@ -89,7 +89,7 @@ fun ProductRow(p: Product, onClick: () -> Unit) {
     }
 }
 
-// Dialog for Edit
+
 @Composable
 fun EditProductDialog(product: Product, onDismiss: () -> Unit, onUpdate: (String, String, String, String) -> Unit, onDelete: () -> Unit) {
     var name by remember { mutableStateOf(product.name) }
