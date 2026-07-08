@@ -20,7 +20,7 @@ fun SplashScreen(onNavigateToLogin: () -> Unit) {
 
     LaunchedEffect(Unit) {
         var dotCount = 0
-        while (dotCount < 6) { // 3 segundos aprox (6 * 500ms)
+        while (dotCount < 6) {
             delay(500)
             dotCount++
             loadingText = "Cargando" + ".".repeat(dotCount % 4)
