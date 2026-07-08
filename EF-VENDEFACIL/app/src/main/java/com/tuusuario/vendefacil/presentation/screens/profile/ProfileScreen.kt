@@ -27,7 +27,6 @@ fun ProfileScreen(
 ) {
     val currentUserState by appContainer.authUseCases.getCurrentUser().collectAsState()
 
-    // Mantenemos el estado de usuario congelado para evitar el parpadeo al cerrar sesión
     var displayUser by remember { mutableStateOf(currentUserState) }
     LaunchedEffect(currentUserState) {
         if (currentUserState != null) displayUser = currentUserState
