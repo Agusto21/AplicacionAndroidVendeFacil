@@ -11,13 +11,13 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 
 class ProductRepositoryImpl(
-    private val remoteDataSource: RemoteDataSource // Inyectamos la red
+    private val remoteDataSource: RemoteDataSource 
 ) : ProductRepository {
 
     private val _products = MutableStateFlow<List<Product>>(emptyList())
     override fun getProducts(): Flow<List<Product>> = _products
 
-    // NUEVO: Método para traer la lista fresca desde AWS
+
     override suspend fun fetchProducts() {
         try {
             val response = remoteDataSource.getProductos()
@@ -36,7 +36,7 @@ class ProductRepositoryImpl(
         try {
             val response = remoteDataSource.createProducto(product.toDto())
             if (response.isSuccessful && response.body()?.success == true) {
-                fetchProducts() // Recargamos la lista si fue exitoso
+                fetchProducts() 
             }
         } catch (e: Exception) {
             Log.e("API_PRODUCTOS", "Fallo al crear: ${e.message}")
