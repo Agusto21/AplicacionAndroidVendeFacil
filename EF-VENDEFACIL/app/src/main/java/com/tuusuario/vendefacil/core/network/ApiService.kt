@@ -8,7 +8,6 @@ import com.tuusuario.vendefacil.data.remote.dto.RegisterRequest
 import com.tuusuario.vendefacil.data.remote.dto.TransactionDto
 import com.tuusuario.vendefacil.domain.model.Product
 import com.tuusuario.vendefacil.domain.model.Transaction
-// Importa aquí tu ApiResponse y los modelos de Producto/Venta
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.DELETE
