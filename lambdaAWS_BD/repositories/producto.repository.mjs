@@ -12,10 +12,10 @@ export const createProducto = (item) =>
 export const getProducto = (usuario_id, producto_id) =>
   ddb.send(new GetCommand({
     TableName: TABLE,
-    Key: { usuario_id, producto_id }, // Clave compuesta
+    Key: { usuario_id, producto_id }, 
   }));
 
-// Usamos QUERY para aislar los datos por cliente
+
 export const listProductos = (usuario_id) =>
   ddb.send(new QueryCommand({
     TableName: TABLE,
@@ -28,7 +28,7 @@ export const listProductos = (usuario_id) =>
   export const updateProducto = (usuario_id, producto_id, updateExpression, names, values) =>
     ddb.send(new UpdateCommand({
       TableName: TABLE,
-      Key: { usuario_id, producto_id }, // La clave compuesta es obligatoria
+      Key: { usuario_id, producto_id }, 
       UpdateExpression: updateExpression,
       ExpressionAttributeNames: names,
       ExpressionAttributeValues: values,
@@ -36,7 +36,7 @@ export const listProductos = (usuario_id) =>
       ReturnValues: "ALL_NEW",
     }));
   
-  // NUEVO: Función para eliminar
+
   export const deleteProducto = (usuario_id, producto_id) =>
     ddb.send(new DeleteCommand({
       TableName: TABLE,
