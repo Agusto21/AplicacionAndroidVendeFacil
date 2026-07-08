@@ -9,7 +9,7 @@ import com.tuusuario.vendefacil.data.remote.dto.TransactionDto
 import kotlinx.coroutines.delay
 
 class RemoteDataSource(private val apiService: ApiService) {
-    // Dentro de tu RemoteDataSource.kt
+
     suspend fun login(request: LoginRequest) = apiService.login(request)
     suspend fun register(request: RegisterRequest) = apiService.register(request)
 
