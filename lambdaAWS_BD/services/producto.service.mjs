@@ -3,8 +3,8 @@ import * as repo from "../repositories/producto.repository.mjs";
 
 export const create = async (usuario_id, data) => {
   const newProducto = { 
-    usuario_id: usuario_id, // Obligatorio para tu PK
-    producto_id: randomUUID(), // Obligatorio para tu SK
+    usuario_id: usuario_id, 
+    producto_id: randomUUID(), 
     ...data 
   };
   await repo.createProducto(newProducto);
@@ -39,7 +39,6 @@ export const update = async (usuario_id, producto_id, body) => {
   return result.Attributes;
 };
 
-// NUEVO: Lógica para eliminar
 export const remove = async (usuario_id, producto_id) => {
   await repo.deleteProducto(usuario_id, producto_id);
 };
