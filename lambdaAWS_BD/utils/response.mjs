@@ -36,7 +36,6 @@ const defaultHeaders = {
     buildResponse(500, { message });
   
   
-  // Normalizador de errores (ej: Zod)
   const formatError = (error) => {
     if (error?.issues) {
       return {
