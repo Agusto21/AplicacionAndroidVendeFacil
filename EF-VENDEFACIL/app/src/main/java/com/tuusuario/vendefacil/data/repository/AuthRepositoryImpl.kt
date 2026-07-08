@@ -35,7 +35,7 @@ class AuthRepositoryImpl(
             if (response.isSuccessful && response.body()?.success == true) {
                 val userDto = response.body()!!.data.userData
 
-                // Guardamos todo en el teléfono
+
                 sessionManager.guardarUsuario(
                     id = userDto.userId,
                     nombre = userDto.name,
@@ -70,7 +70,7 @@ class AuthRepositoryImpl(
 
                 val userDto = response.body()!!.data.userData
 
-                // Guardamos todo en el teléfono
+
                 sessionManager.guardarUsuario(
                     id = userDto.userId,
                     nombre = userDto.name,
