@@ -35,7 +35,7 @@ export const login = async (event) => {
 };
 
 export const updateUsuario = async (event) => {
-  // Nota: Extraemos el usuarioId directamente de los parámetros de la URL
+  
   const usuarioId = event.pathParameters?.id;
   if (!usuarioId) return badRequest("Falta el ID del usuario");
 
