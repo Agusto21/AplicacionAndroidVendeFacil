@@ -5,7 +5,7 @@ export const create = async (usuario_id, data) => {
   const newVenta = { 
     usuario_id: usuario_id, 
     venta_id: randomUUID(),
-    fecha: new Date().toISOString(), // Agregamos la fecha automáticamente
+    fecha: new Date().toISOString(), 
     ...data 
   };
   await repo.createVenta(newVenta);
