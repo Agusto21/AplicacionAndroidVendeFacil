@@ -12,7 +12,7 @@ export const createUsuario = (item) =>
 export const getUsuario = (usuario_id) =>
   ddb.send(new GetCommand({
     TableName: TABLE,
-    Key: { usuario_id }, // Solo PK, sin SK
+    Key: { usuario_id }, 
   }));
 
   export const getUsuarioByCorreo = (correo) =>
@@ -25,7 +25,7 @@ export const getUsuario = (usuario_id) =>
   export const updateUsuario = (usuario_id, updateExpression, names, values) =>
     ddb.send(new UpdateCommand({
       TableName: TABLE,
-      Key: { usuario_id }, // Solo usamos PK
+      Key: { usuario_id }, 
       UpdateExpression: updateExpression,
       ExpressionAttributeNames: names,
       ExpressionAttributeValues: values,
