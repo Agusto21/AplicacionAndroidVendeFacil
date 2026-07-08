@@ -47,7 +47,6 @@ class HistoryViewModel(private val salesUseCases: SalesUseCases, private val pro
         val updatedTransaction = t.copy(items = updatedItems, total = newTotal)
 
         viewModelScope.launch {
-            // 1. Actualizamos la venta en AWS
             salesUseCases.updateTransaction(updatedTransaction)
 
             productUseCases.updateStock(itemToRemove.product.id, -itemToRemove.quantity)
@@ -69,10 +68,8 @@ class HistoryViewModel(private val salesUseCases: SalesUseCases, private val pro
         val updatedTransaction = t.copy(items = updatedItems, total = newTotal)
 
         viewModelScope.launch {
-            // 1. Actualizamos la venta en AWS
             salesUseCases.updateTransaction(updatedTransaction)
 
-            // 2. ¡DESCONTAMOS EL STOCK DEL INVENTARIO!
             productUseCases.updateStock(product.id, quantity)
         }
     }
