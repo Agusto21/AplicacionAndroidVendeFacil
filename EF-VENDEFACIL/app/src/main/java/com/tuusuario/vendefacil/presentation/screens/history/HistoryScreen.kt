@@ -77,7 +77,6 @@ fun HistoryScreen(appContainer: AppContainer, onNavigateBack: () -> Unit) {
             }
             Spacer(modifier = Modifier.height(16.dp))
             LazyColumn {
-                // key = { it.id } ayuda a Compose a reciclar y actualizar elementos más eficientemente
                 items(transactions, key = { it.id }) { t ->
                     HistoryRow(t) { selectedTransactionId = t.id }
                     Spacer(modifier = Modifier.height(8.dp))
