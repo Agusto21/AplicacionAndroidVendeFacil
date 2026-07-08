@@ -11,18 +11,16 @@ import com.tuusuario.vendefacil.domain.usecase.ProductUseCases
 import com.tuusuario.vendefacil.domain.usecase.SalesUseCases
 import com.tuusuario.vendefacil.core.network.RetrofitClient
 
-// 1. Pedimos el Context en el constructor
+
 class AppContainer(private val context: Context) {
 
-    // 2. Instanciamos el SessionManager usando ese context
+
     val sessionManager = SessionManager(context)
 
-    // 3. Le pasamos el sessionManager a Retrofit
     val apiService = RetrofitClient.createRetrofit(sessionManager).create(com.tuusuario.vendefacil.core.network.ApiService::class.java)
 
     val remoteDataSource = RemoteDataSource(apiService)
 
-    // 4. Le pasamos el sessionManager al repositorio de autenticación
     val authRepository = AuthRepositoryImpl(remoteDataSource, sessionManager)
 
     val productRepository = ProductRepositoryImpl(remoteDataSource)
