@@ -14,7 +14,7 @@ fun ProductDto.toDomain() = Product(
 
 
 fun Product.toDto() = ProductDto(
-    productoId = if (this.id.isEmpty()) null else this.id, // Si está vacío, enviamos null para que AWS lo cree
+    productoId = if (this.id.isEmpty()) null else this.id, 
     nombre = this.name,
     categoria = if (this.category.isBlank() || this.category == "Sin categoría") null else this.category,
     precio = this.price,
