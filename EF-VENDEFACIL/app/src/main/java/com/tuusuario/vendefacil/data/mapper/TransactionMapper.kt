@@ -19,17 +19,17 @@ fun TransactionItemDto.toDomain() = TransactionItem(
 )
 
 fun TransactionDto.toDomain() = Transaction(
-    id = this.ventaId ?: "", // Extraemos el ID real de AWS
+    id = this.ventaId ?: "", 
     items = this.detalle.map { it.toDomain() },
-    timestamp = this.fecha ?: "", // Extraemos la fecha real de AWS
+    timestamp = this.fecha ?: "", 
     clientName = this.cliente,
     paymentMethod = this.metodoPago,
     total = this.total
 )
 
-// De la App hacia AWS (Escritura / Actualización)
+
 fun Transaction.toDto() = TransactionDto(
-    // Si el id viene vacío o es un timestamp autogenerado localmente, enviamos null para que AWS cree uno real
+
     ventaId = if (this.id.isEmpty() || this.id.toLongOrNull() != null) null else this.id,
     fecha = this.timestamp.ifEmpty { null },
     cliente = this.clientName,
