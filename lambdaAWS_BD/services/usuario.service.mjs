@@ -3,7 +3,7 @@ import * as repo from "../repositories/usuario.repository.mjs";
 
 export const create = async (data) => {
   const newUsuario = { 
-    usuario_id: randomUUID(), // Generamos el ID del nuevo tenant
+    usuario_id: randomUUID(), 
     ...data 
   };
   await repo.createUsuario(newUsuario);
@@ -24,7 +24,7 @@ export const login = async (correo, contrasena) => {
 
   const usuario = result.Items[0];
 
-  // Como es un proyecto básico, comparamos en texto plano
+
   if (usuario.contrasena !== contrasena) {
     throw new Error("Contraseña incorrecta");
   }
