@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.core.content.edit
 
 class SessionManager(context: Context) {
-    // Mantenemos tu nombre de archivo original
+
     private val prefs = context.getSharedPreferences("vende_facil_prefs", Context.MODE_PRIVATE)
 
-    // Usamos el bloque 'edit' de KTX que ya tenías
+
     fun guardarUsuario(id: String, nombre: String, negocio: String, email: String, telefono: String) {
         prefs.edit {
             putString("USUARIO_ID", id)
