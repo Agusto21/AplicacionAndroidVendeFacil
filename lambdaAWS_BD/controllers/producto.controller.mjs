@@ -30,8 +30,8 @@ export const updateProducto = async (usuarioId, productoId, event) => {
   return ok(productoActualizado);
 };
 
-// NUEVO: Controlador de eliminación
+
 export const deleteProducto = async (usuarioId, productoId) => {
   await service.remove(usuarioId, productoId);
-  return noContent(); // Retorna HTTP 204
+  return noContent();
 };
