@@ -7,9 +7,9 @@ export const ventaSchema = z.object({
   detalle: z.array(
     z.object({
       producto_id: z.string().min(1),
-      producto: z.string().min(1), // nombre del producto
+      producto: z.string().min(1),
       cantidad: z.number().int().min(1),
       subtotal: z.number().min(0)
     })
-  ).min(1) // Mínimo 1 producto en la venta
+  ).min(1) 
 });
